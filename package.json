@@ -22,7 +22,6 @@
     "lint": "concurrently \"npm run lint:server\" \"npm run lint:client\"",
     "lint:server": "cd server && npm run lint",
     "lint:client": "cd client && npm run lint",
-    "prepare": "husky install",
     "deploy:client": "cd client && npm run build",
     "deploy:server": "cd server && npm install --production",
     "postinstall": "npm run install:all",
