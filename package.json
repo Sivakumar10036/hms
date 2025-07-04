@@ -1,1 +1,60 @@
 
+{
+  "name": "hospital-management-system",
+  "version": "1.0.0",
+  "description": "Complete MERN Stack Hospital Management System",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client\"",
+    "server:dev": "cd server && npm run dev",
+    "build": "cd client && npm run build",
+    "test": "concurrently \"npm run test:server\" \"npm run test:client\"",
+    "test:server": "cd server && npm test",
+    "test:client": "cd client && npm test",
+    "lint": "concurrently \"npm run lint:server\" \"npm run lint:client\"",
+    "lint:server": "cd server && npm run lint",
+    "lint:client": "cd client && npm run lint",
+    "prepare": "husky install",
+    "deploy:client": "cd client && npm run build",
+    "deploy:server": "cd server && npm install --production",
+    "postinstall": "npm run install:all",
+    "install:all": "concurrently \"cd server && npm install\" \"cd client && npm install\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.1",
+    "husky": "^8.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "prettier": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "render": {
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": "10000"
+  }
+}
+  }
+}
